@@ -15,6 +15,8 @@ public class Boleto {
 	private double juros;
 	private String agencia;
 	private String contaBancaria;
+	
+	
 	public int getId() {
 		return id;
 	}
