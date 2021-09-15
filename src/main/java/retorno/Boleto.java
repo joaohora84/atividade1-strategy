@@ -78,13 +78,21 @@ public class Boleto {
 	public void setContaBancaria(String contaBancaria) {
 		this.contaBancaria = contaBancaria;
 	}
+	@Override
+	public String toString() {
+		return "Boleto [id=" + id + ", codBanco=" + codBanco + ", dataVencimento=" + dataVencimento + ", dataPagamento="
+				+ dataPagamento + ", cpfCliente=" + cpfCliente + ", valor=" + valor + ", multa=" + multa + ", juros="
+				+ juros + ", agencia=" + agencia + ", contaBancaria=" + contaBancaria + "]";
+	}
+	
+	
 	
 	
 	/**
      * Formata os dados do boleto para ser usado como String ou impresso.
      * Assim, podemos fazer System.out.println(boleto) e exibir os dados formatados adequadamente.
      * @return
-     */
+     
     @Override
     public String toString() {
         String str = String.format("Id: %10d Banco: %3s", id, codBanco);
@@ -107,6 +115,8 @@ public class Boleto {
 
         return str;
     }
+    
+    */
 	
 	
 

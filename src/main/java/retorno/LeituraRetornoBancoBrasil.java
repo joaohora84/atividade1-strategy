@@ -36,9 +36,7 @@ List<Boleto> boletos = new ArrayList();
 				boleto.setValor(Double.parseDouble(campo[5]));
 				boleto.setMulta(Double.parseDouble(campo[6]));
 				boleto.setJuros(Double.parseDouble(campo[7]));
-				boleto.setAgencia(campo[8]);
-				boleto.setContaBancaria(campo[9]);
-				
+								
 				boletos.add(boleto);
 				
 			}

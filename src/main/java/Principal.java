@@ -1,3 +1,4 @@
+import retorno.LeituraRetornoBancoBrasil;
 import retorno.LeituraRetornoBradesco;
 import retorno.ProcessarBoletos;
 
@@ -8,13 +9,15 @@ public class Principal {
 		
 		final ProcessarBoletos processarBradesco = new ProcessarBoletos(new LeituraRetornoBradesco());
 		
-		//final ProcessarBoletos processarBrasil = new ProcessarBoletos(new LeituraRetornoBancoBrasil());
+		final ProcessarBoletos processarBrasil = new ProcessarBoletos(new LeituraRetornoBancoBrasil());
 		
-		String arquivo = Principal.class.getResource("bradesco-1.csv").getPath();
+		String arquivoBrasil = "src/main/resources/banco-brasil-1.csv";
 		
-		processarBradesco.processar(arquivo);
+		String arquivoBradesco = "src/main/resources/bradesco-1.csv";
 		
-		//processarBrasil.processar(arquivo);
+		processarBradesco.processar(arquivoBradesco);
+		
+		processarBrasil.processar(arquivoBrasil);
 		
 
 	}
