@@ -1,4 +1,5 @@
-package strategy;
+import retorno.LeituraRetornoBradesco;
+import retorno.ProcessarBoletos;
 
 public class Principal {
 
@@ -13,6 +14,7 @@ public class Principal {
 		
 		processarBradesco.processar(arquivo);
 		
+		//processarBrasil.processar(arquivo);
 		
 
 	}

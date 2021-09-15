@@ -1,4 +1,5 @@
-package model;
+package retorno;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -77,12 +78,35 @@ public class Boleto {
 	public void setContaBancaria(String contaBancaria) {
 		this.contaBancaria = contaBancaria;
 	}
-	@Override
-	public String toString() {
-		return "Boleto [id=" + id + ", codBanco=" + codBanco + ", dataVencimento=" + dataVencimento + ", dataPagamento="
-				+ dataPagamento + ", cpfCliente=" + cpfCliente + ", valor=" + valor + ", multa=" + multa + ", juros="
-				+ juros + ", agencia=" + agencia + ", contaBancaria=" + contaBancaria + "]";
-	}
+	
+	
+	/**
+     * Formata os dados do boleto para ser usado como String ou impresso.
+     * Assim, podemos fazer System.out.println(boleto) e exibir os dados formatados adequadamente.
+     * @return
+     */
+    @Override
+    public String toString() {
+        String str = String.format("Id: %10d Banco: %3s", id, codBanco);
+        String ag = "";
+        if(agencia != null && !agencia.isEmpty() && contaBancaria != null && !contaBancaria.isEmpty()){
+            ag = String.format(" Ag: %6s CC: %10s", agencia, contaBancaria);
+        }
+
+        str += ag + String.format(
+                " Venc: %s Pag: %s Valor: %10.2f",
+                LeituraRetorno.dataFormatada.format(dataVencimento),
+                LeituraRetorno.dataHoraFormatada.format(dataPagamento), valor);
+        if(multa > 0){
+            str += String.format(" Multa: %10.2f", multa);
+        }
+
+        if(juros > 0){
+            str += String.format(" Juros: %10.2f", juros);
+        }
+
+        return str;
+    }
 	
 	
 

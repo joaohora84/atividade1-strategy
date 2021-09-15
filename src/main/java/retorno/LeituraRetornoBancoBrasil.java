@@ -1,8 +1,7 @@
-package strategy;
+package retorno;
+
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -10,24 +9,25 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Boleto;
+public class LeituraRetornoBancoBrasil implements LeituraRetorno{
 
-public class LeituraRetornoBradesco implements LeituraRetorno{
-
-	
+	@Override
 	public List<Boleto> lerArquivo(String nomeArquivo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	
-	
-	
-	/*
-	 * String[] campo = linha.split(csvDivisor);
+List<Boleto> boletos = new ArrayList();
+		
+		try {
+			
+			BufferedReader br = Files.newBufferedReader(Paths.get(nomeArquivo));
+			
+			String linha;
+			String divisor = ";";
+			
+			while ((linha = br.readLine()) != null) {
+				
+				String[] campo = linha.split(divisor);
 				
 				Boleto boleto = new Boleto();
+				
 				boleto.setId(Integer.parseInt(campo[0]));
 				boleto.setCodBanco(campo[1]);
 				boleto.setDataVencimento(LocalDate.parse(campo[2], dataFormatada));
@@ -40,8 +40,19 @@ public class LeituraRetornoBradesco implements LeituraRetorno{
 				boleto.setContaBancaria(campo[9]);
 				
 				boletos.add(boleto);
-	 * 
-	 * */
+				
+			}
+			
+			return boletos;
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 	
 
 }

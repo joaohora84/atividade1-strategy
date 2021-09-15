@@ -1,8 +1,7 @@
-package strategy;
+package retorno;
+
 
 import java.util.List;
-
-import model.Boleto;
 
 public class ProcessarBoletos {
 
