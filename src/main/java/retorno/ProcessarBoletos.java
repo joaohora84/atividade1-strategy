@@ -14,10 +14,25 @@ public class ProcessarBoletos {
 	public final void processar(String nomeArquivo) {
 
 		List<Boleto> boletos = lr.lerArquivo(nomeArquivo);
+		
 
 		for (Boleto boleto : boletos) {
-
-			System.out.print(boleto);
+			
+			if (boleto.getCodBanco().equals("001")) {
+				
+				System.out.println();
+				System.out.println("********** Banco do Brasil **********");
+				System.out.println();
+				System.out.println(boleto);
+				
+			} else {
+				
+				System.out.println();
+				System.out.println("********** Bradesco **********");
+				System.out.println();
+				System.out.println(boleto);
+				
+			}
 
 		}
 

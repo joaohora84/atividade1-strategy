@@ -54,18 +54,6 @@ public class LeituraRetornoBradesco implements LeituraRetorno{
 		return null;
 	}
 
-	
 
-	
-
-	
-	
-	
-	
-	/*
-	 * 
-	 * 
-	 * */
-	
 
 }
